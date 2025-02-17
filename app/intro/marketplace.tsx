@@ -6,8 +6,10 @@ import { ProgressDots } from "@/components/ProgressDots";
 export default function MarketplacePage() {
   return (
     <View style={styles.container}>
-      <ProgressDots totalDots={4} currentIndex={3} />
-
+ <View style={styles.titleContainer}>
+        <Text style={[styles.title, styles.gymText]}>GYM</Text>
+        <Text style={[styles.title, styles.spotText]}>SPOT</Text>
+      </View>
       <Image
         resizeMode="contain"
         source={require("../../assets/images/marktplace.png")}
@@ -17,7 +19,12 @@ export default function MarketplacePage() {
       <Text style={styles.description}>
         Commander et acheter des équipements et matériel et notre marché
       </Text>
-      <Pressable style={styles.button}>
+      <ProgressDots totalDots={4} currentIndex={3} />
+
+ <Pressable
+        style={styles.button}
+        onPress={() => router.push("/intro/homeauth")}
+      >        
         <Text style={styles.buttonText}>Commencer l'exploration</Text>
       </Pressable>
     </View>
@@ -56,6 +63,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 30,
     borderRadius: 25,
+    marginTop: 70,
     width: "80%",
     maxWidth: 300,
   },
@@ -64,5 +72,16 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
     textAlign: "center",
+  },
+  titleContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 16,
+  },
+  gymText: {
+    color: "#000000",
+  },
+  spotText: {
+    color: "#FF8A00",
   },
 });

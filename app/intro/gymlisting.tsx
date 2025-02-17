@@ -6,8 +6,10 @@ import { ProgressDots } from "../../components/ProgressDots";
 export default function GymListingPage() {
   return (
     <View style={styles.container}>
-      <ProgressDots totalDots={4} currentIndex={1} />
-
+ <View style={styles.titleContainer}>
+        <Text style={[styles.title, styles.gymText]}>GYM</Text>
+        <Text style={[styles.title, styles.spotText]}>SPOT</Text>
+      </View>
       <Image
         resizeMode="contain"
         source={require("../../assets/images/globe.png")}
@@ -18,6 +20,8 @@ export default function GymListingPage() {
         Recherchez, localisez et accédez à de multiple gyms collaborés avec
         GYMSPOT
       </Text>
+      <ProgressDots totalDots={4} currentIndex={1} />
+
       <Pressable
         style={styles.button}
         onPress={() => router.push("/intro/coachlisting")}
@@ -60,6 +64,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 30,
     borderRadius: 25,
+    marginTop: 70,
     width: "80%",
     maxWidth: 300,
   },
@@ -68,5 +73,16 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
     textAlign: "center",
+  },
+  titleContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 16,
+  },
+  gymText: {
+    color: "#000000",
+  },
+  spotText: {
+    color: "#FF8A00",
   },
 });
